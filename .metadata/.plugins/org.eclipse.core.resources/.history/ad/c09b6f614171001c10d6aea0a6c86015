@@ -1,0 +1,15 @@
+package clasesYObjetos1;
+/*
+ * Los objetos de esta clase gestionan informacion basica sobre personas.
+ */
+
+public class Persona {
+	
+	private String nombre;
+	private int edad;
+	private String dni;
+	private String sexo;
+	private double peso;
+	private double altura;
+	
+}

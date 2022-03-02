@@ -1,0 +1,1 @@
+crear un objeto de clase file, que almacene los datos para poder llamarlos a gusto, y que realice los conteos allí

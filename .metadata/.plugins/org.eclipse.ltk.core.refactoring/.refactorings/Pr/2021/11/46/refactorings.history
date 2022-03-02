@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;respuestasCorrectas&apos; in &apos;correctorDeErrores.CorregirExamen.puntuarTest(...)&apos; to &apos;respuestas&apos;&#x0D;&#x0A;- Original project: &apos;Pr&apos;&#x0D;&#x0A;- Original element: &apos;correctorDeErrores.CorregirExamen.puntuarTest(int[], int).respuestasCorrectas&apos;&#x0D;&#x0A;- Renamed element: &apos;respuestasCorrectas&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;respuestasCorrectas&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;correctorDeErrores{CorregirExamen.java[CorregirExamen~puntuarTest~\[I~I@respuestasCorrectas!3266!3312!3272!3290!\[I!0!false" name="respuestas" references="true" stamp="1637352001044" version="1.0"/>
+</session>

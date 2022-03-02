@@ -1,0 +1,225 @@
+package practica3;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Formatter;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Comparator;
+
+public class MainBizi {
+	/*
+	 * Pre: ---
+	 * Post: Este comprueba si una cadena dada es un numero entero
+	 */
+	private static boolean esEntero(String cadena){
+		try {
+			Integer.parseInt(cadena);
+			return true;
+		} catch (NumberFormatException nfe){
+			return false;
+		}
+	}
+	
+	/*
+	 * Pre: ---
+	 * Post: Este metodo muestra un menu al jugador y le pide que escoja una opcion
+	 */
+	private static int mostrarMenu(Scanner entrada) {
+		System.out.println("\nBienvenido al archivo de registros de Bici, seleccione una opcion:\n"
+				+ "1. Contar usos\n"
+				+ "2. Usos por usuario\n"
+				+ "0. Salir");
+		String opcion = entrada.nextLine();
+		if(esEntero(opcion)) return Integer.parseInt(opcion);
+		else return -1;
+	}
+	
+	/*
+	 * Pre: ---
+	 * Post: Este método crea un objeto tipo File del que se leerá la información
+	 * y luego copia las 10 primeras líneas del file en un nuevo fichero
+	 */
+	public static void copiar10() {
+		String fichero = "D:/Documentos/GradosuperiorDAM2021/Programación/Practica3Trimestre2_BiZi/usos-16.csv";
+		String newFile = "D:/Documentos/GradosuperiorDAM2021/Programación/Practica3Trimestre2_BiZi/pruebas-10.csv";
+		File file = new File(fichero);
+		try {
+			Formatter salida = new Formatter(newFile);
+			try {
+				Scanner f = new Scanner(file);
+				for(int i = 0; i<10; i++) salida.format(f.nextLine() + "\n");
+				//Se libera el fichero que estamos leyendo:
+				f.close();
+			} catch (FileNotFoundException e) {
+				System.out.println("El fichero " + fichero + " no ha podido ser leído.");
+			}
+			System.out.println("Fichero \"pruebas-10.csv\" generado correctamente");
+			salida.close();
+		} catch (FileNotFoundException e1) {
+			System.out.println("El fichero " + newFile + " no ha podido ser creado.");
+		}	
+	}
+	
+	/*
+	 * Pre: ---
+	 * Post: Este método crea un objeto tipo File del que se leerá la información
+	 * y luego copia las 2000 primeras líneas del file en un nuevo fichero
+	 */
+	public static void copiar2000() {
+		String fichero = "D:/Documentos/GradosuperiorDAM2021/Programación/Practica3Trimestre2_BiZi/usos-17.csv";
+		String newFile = "D:/Documentos/GradosuperiorDAM2021/Programación/Practica3Trimestre2_BiZi/pruebas-2000.csv";
+		File file = new File(fichero);
+		try {
+			Formatter salida = new Formatter(newFile);
+			try {
+				Scanner f = new Scanner(file);
+				for(int i = 0; i<2000; i++) salida.format(f.nextLine() + "\n");
+				//Se libera el fichero que estamos leyendo:
+				f.close();
+			} catch (FileNotFoundException e) {
+				System.out.println("El fichero " + fichero + " no ha podido ser leído.");
+			}
+			System.out.println("Fichero \"pruebas-2000.csv\" generado correctamente");
+			salida.close();
+		} catch (FileNotFoundException e1) {
+			System.out.println("El fichero " + newFile + " no ha podido ser creado.");
+		}	
+	}
+	
+	/*
+	 * Pre: ---
+	 * Post: Este metodo lee un fichero, parsea sus datos y los guarda en un objeto de clase UsoBizi
+	 * luego muestra por pantalla los usos totales, los circulares y los traslados
+	 */
+	public static void contarUsos(Scanner entrada, ArrayList<UsoBizi> usos) {
+		usos.clear();
+		System.out.println("Escriba el nombre de un fichero de usos del sistema Bizi: ");
+		String fichero = entrada.nextLine();
+		File file = new File(fichero);
+		int totalUsos = 0;
+		int traslados = 0;
+		int circulares = 0;
+		try {
+			Scanner f = new Scanner(file);
+			f.nextLine();
+			while(f.hasNextLine()) {
+				String linea = f.nextLine();
+				totalUsos++;
+				//Limpiamos la línea
+				String[] lineaSep = linea.split(";");
+				if(!lineaSep[2].equalsIgnoreCase(lineaSep[4])) traslados++;
+				else circulares++;
+				usos.add(new UsoBizi(lineaSep[0], lineaSep[1], lineaSep[2], lineaSep[3], lineaSep[4]));
+			}
+			//Se libera el fichero que estamos leyendo:
+			f.close();
+			System.out.println(	
+					String.format("%-40s", "Numero total de usos como traslado: ") +
+							String.format("%9s",traslados + "\n") + 
+					String.format("%-40s", "Numero total de usos circulares: ") + 
+							String.format("%9s",circulares + "\n") +  
+					String.format("%-40s", "Numero total de usos: ") + 
+							String.format("%8s",totalUsos + ""));
+		} catch (FileNotFoundException e) {
+			System.out.println("El fichero " + fichero + " no ha podido ser leído.");
+		}
+			
+	}
+	
+	/*
+	 * Pre: ---
+	 * Post: Este metodo comprueba si el usuario pasado como parametro esta en el arrayList
+	 * si lo está, suma los datos del nuevo usuario a los atributos, sino, añade el usuario al arrayList
+	 */
+	public static void addReg(ArrayList<UsuarioBizi> usuarios, UsuarioBizi user) {
+		boolean nuevo = true;
+		for(UsuarioBizi us: usuarios) {
+			if(us.getIDUsuario() == user.getIDUsuario()) {
+				us.sumarUsos(user.getTraslados(), user.getCirculares());
+				nuevo = false;
+				break;
+			}
+		}
+		if(nuevo) usuarios.add(user);
+	}
+	
+	/*
+	 * Pre: ---
+	 * Post: Este método ordena un arrayList en base a uno de sus atributos
+	 */
+	public void ordenarUsuarios(ArrayList<UsuarioBizi> usuarios) {
+		//Collections.sort(usuarios, (u1, u2) -> u2.getUsosTotales().compareTo(u1.getUsosTotales()));
+		usuarios.sort(Comparator.comparing(UsuarioBizi::getUsosTotales).reversed());
+		/*Collections.sort(usuarios, new Comparator<UsuarioBizi>() {
+			@Override
+			public int compare(UsuarioBizi u1, UsuarioBizi u2) {
+				return new Integer(u2.getUsosTotales()).compareTo(new Integer(u1.getUsosTotales()));
+			}
+		});*/
+	}
+	
+	/*
+	 * Pre: ---
+	 * Post: Este metodo lee un fichero, parsea sus datos y los guarda en un objeto de clase UsoBizi
+	 * luego muestra por pantalla los usos totales, los circulares y los traslados
+	 */
+	public static void usosPorUsuario(Scanner entrada, ArrayList<UsoBizi> usos, ArrayList<UsuarioBizi> usuarios) {
+		usos.clear();
+		System.out.println("Escriba el nombre de un fichero de usos del sistema Bizi: ");
+		String fichero = entrada.nextLine();
+		File file = new File(fichero);
+		try {
+			Scanner f = new Scanner(file);
+			f.nextLine();
+			while(f.hasNextLine()) {
+				String linea = f.nextLine();
+				//Limpiamos la línea
+				String[] lineaSep = linea.split(";");
+				if(lineaSep[2].equalsIgnoreCase(lineaSep[4])) {
+					addReg(usuarios, new UsuarioBizi(Integer.parseInt(lineaSep[0]), 0, 1));
+				}else addReg(usuarios, new UsuarioBizi(Integer.parseInt(lineaSep[0]), 1, 0));
+				usos.add(new UsoBizi(lineaSep[0], lineaSep[1], lineaSep[2], lineaSep[3], lineaSep[4]));
+			}
+			//Se libera el fichero que estamos leyendo:
+			f.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("El fichero " + fichero + " no ha podido ser leído.");
+		}
+	}
+	
+	/*
+	 * Pre: ---
+	 * Post: Este método main llama a los métodos copiar para crear archivos de prueba,
+	 * luego muestra el menú al usuario y realiza una acción en base a lo que este escoja
+	 */
+	public static void main(String[] args) {
+		copiar10();
+		copiar2000();
+		ArrayList<UsoBizi> usos = new ArrayList<UsoBizi>();
+		ArrayList<UsuarioBizi> usuarios = new ArrayList<UsuarioBizi>();
+		Scanner entrada = new Scanner(System.in);
+		int opcion = -1;
+		while(opcion!=0) {
+			opcion = mostrarMenu(entrada);
+			switch(opcion) {
+			case 0:
+				System.out.println("Programa finalizado");
+				break;
+			case 1:
+				contarUsos(entrada, usos);
+				break;
+			case 2:
+				usosPorUsuario(entrada, usos, usuarios);
+				break;
+			case 3:
+				
+				break;
+			default:
+				System.out.println("Opcion incorrecta");
+				break;
+			}
+		}
+		entrada.close();
+	}
+}

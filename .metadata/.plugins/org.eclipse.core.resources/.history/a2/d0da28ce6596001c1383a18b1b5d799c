@@ -1,0 +1,12 @@
+package practica3;
+
+public class UsoBizi {
+	//IDUsuario;RetiroDT;RetiroEstacion;AnclajeDT;AnclajeEstacion
+	private String idUsuario;
+	private String retiroDT;
+	private String retiroEstacion;
+	private String anclajeDT;
+	private String anclajeEstacion;
+	
+	
+}

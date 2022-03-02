@@ -1,0 +1,41 @@
+package clasesYObjetos1;
+/*
+ * Los objetos de esta clase gestionan informacion basica sobre personas.
+ */
+
+public class Persona {
+	
+	private String nombre;
+	private int edad;
+	private String dni;
+	private String sexo;
+	private double peso;
+	private double altura;
+	
+	public Persona() {
+		this.nombre = "";
+		this.edad = -1;
+		generarDNI();
+		this.sexo = "";
+		this.altura = -1;
+		this.peso = -1;
+	}
+	
+	public Persona(String nombre, int edad, String sexo) {
+		this.nombre = nombre;
+		this.edad = edad;
+		generarDNI();
+		this.sexo = sexo;
+		this.altura = -1;
+		this.peso = -1;
+	}
+	
+	public Persona(String nombre, int edad, String dni, String sexo, double altura, double peso) {
+		this.nombre = "";
+		this.edad = -1;
+		generarDNI();
+		this.sexo = "";
+		this.altura = -1;
+		this.peso = -1;
+	}
+}

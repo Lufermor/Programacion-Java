@@ -1,0 +1,44 @@
+package highLevelFiles;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Formatter;
+import java.util.Scanner;
+
+public class TextFilesExercise2 {
+	/*
+	 * Pre: ---
+	 * Post: 
+	 */
+	public static void copiarFichero(String fichero, String nombre) {
+		File file = new File(fichero);
+		Formatter salida = new Formatter(nombre);
+		try {
+			Scanner f = new Scanner(file);
+			int contador = 0;
+			while(f.hasNextLine()) {
+				String linea = f.nextLine();
+				//Limpio la linea
+				linea = linea.replaceAll(",", "").replaceAll("\\.", "");
+				String[] lineaSep = linea.split(" ");
+			}
+			//Se libera el fichero que estamos leyendo:
+			f.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	/*
+	 * Pre: ---
+	 * Post: 
+	 */
+	public static void main(String[] args) {
+		String fichero = "/Users/User/Documents/Java/PruebaHighLevelFiles/personas.txt";
+		Scanner entrada = new Scanner(System.in);
+		System.out.println("Introduzca el nombre (con ruta completa) para el nuevo archivo:");
+		String nuevoFile = entrada.nextLine();
+		copiarFichero(fichero, nuevoFile);
+		System.out.println("Operación terminada.");
+		entrada.close();
+	}
+}

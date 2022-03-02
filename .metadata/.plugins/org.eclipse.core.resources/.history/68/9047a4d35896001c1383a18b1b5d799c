@@ -1,0 +1,43 @@
+package practica3;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Formatter;
+import java.util.Scanner;
+
+public class Pruebas10Csv {
+	/*
+	 * Pre: ---
+	 * Post: Este método crea un objeto tipo File del que se leerá la información
+	 * y luego copia las 10 primeras líneas del file en un nuevo fichero
+	 */
+	public static void copiar10(String fichero, String newFile) {
+		File file = new File(fichero);
+		try {
+			Formatter salida = new Formatter(newFile);
+			try {
+				Scanner f = new Scanner(file);
+				for(int i = 0; i<10; i++) salida.format(f.nextLine());
+				//Se libera el fichero que estamos leyendo:
+				f.close();
+			} catch (FileNotFoundException e) {
+				System.out.println("El fichero " + fichero + " no ha podido ser leído.");
+			}
+			salida.close();
+		} catch (FileNotFoundException e1) {
+			System.out.println("El fichero " + newFile + " no ha podido ser creado.");
+		}	
+	}
+	
+	/*
+	 * Pre: ---
+	 * Post: Este método main con una ruta de fichero a leer, y otra ruta de fichero a crear,
+	 * llama al método copiar10 para copiar las 10 primeras lineas del fichero.
+	 */
+	public static void main(String[] args) {
+		String fichero = "D:/Documentos/GradosuperiorDAM2021\\Programación/Practica3Trimestre2_BiZi/usos-16.csv";
+		String nuevoFile = "D:/Documentos/GradosuperiorDAM2021\\Programación/Practica3Trimestre2_BiZi/pruebas-10.csv";
+		copiar10(fichero, nuevoFile);
+		System.out.println("Operación terminada.");
+	}
+}

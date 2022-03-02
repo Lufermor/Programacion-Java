@@ -1,0 +1,54 @@
+package practica3;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Formatter;
+import java.util.Scanner;
+
+public class Pruebas10Csv {
+	/*
+	 * Pre: ---
+	 * Post: Este método crea un objeto tipo File del que se leerá la información
+	 * de cada línea se parsean los datos y se guardan en variables, 
+	 * calcula los puntos necesarios para obtener la longitud deseada
+	 * y finalmente guarda en un nuevo archivo, cada línea con el nuevo formato. 
+	 */
+	public static void copiarFichero(String fichero, String newFile) {
+		File file = new File(fichero);
+		try {
+			Formatter salida = new Formatter(newFile);
+			
+			try {
+				Scanner f = new Scanner(file);
+				int lineas = 0;
+				while(f.hasNextLine()) {
+					String linea = f.nextLine();
+					//String[] lineaSep = linea.split(";");
+					System.out.println(linea);
+					salida.format(linea); 
+					lineas += 1;
+					if(lineas == 10) break;
+				}
+				//Se libera el fichero que estamos leyendo:
+				f.close();
+			} catch (FileNotFoundException e) {
+				System.out.println("El fichero " + fichero + " no ha podido ser leído.");
+			}
+			salida.close();
+		} catch (FileNotFoundException e1) {
+			System.out.println("El fichero " + newFile + " no ha podido ser creado.");
+		}
+		
+	}
+	/*
+	 * Pre: ---
+	 * Post: Este método main con una ruta dada y otra ruta pedida al usuario,
+	 * llama al método copiarFichero para copiar la información con un formato específico.
+	 */
+	public static void main(String[] args) {
+		String fichero = "D:/Documentos/GradosuperiorDAM2021\\Programación/Practica3Trimestre2_BiZi/usos-16.csv";
+		String nuevoFile = "D:/Documentos/GradosuperiorDAM2021\\Programación/Practica3Trimestre2_BiZi/pruebas-10.csv";
+		copiarFichero(fichero, nuevoFile);
+		System.out.println("Operación terminada.");
+	}
+}

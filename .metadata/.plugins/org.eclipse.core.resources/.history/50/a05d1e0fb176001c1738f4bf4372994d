@@ -1,0 +1,17 @@
+package clasesYObjetos1;
+
+public class Electrodomestico {
+	double precioBase;
+	String color;
+	String consumoEnergetico;
+	double peso;
+	String[] colores = "blanco, negro, rojo, azul, gris".split(", ");
+	
+	public Electrodomestico() {
+		precioBase = 100;
+		color = "Blanco";
+		consumoEnergetico = "F";
+		peso = 5;
+	}
+	
+}

@@ -1,0 +1,101 @@
+package clasesYObjetos1;
+
+public class Electrodomestico {
+	double precioBase;
+	String color;
+	String consumoEnergetico;
+	double peso;
+	String[] colores = "blanco, negro, rojo, azul, gris".split(", ");
+	String[] eficiencias = "A,B,C,D,E,F".split(",");
+	
+	public Electrodomestico() {
+		precioBase = 100;
+		color = "Blanco";
+		consumoEnergetico = "F";
+		peso = 5;
+	}
+	
+	public Electrodomestico(double precioBase, double peso) {
+		this.precioBase = precioBase;
+		this.peso = peso;
+		color = "Blanco";
+		consumoEnergetico = "F";
+	}
+	
+	public Electrodomestico(double precioBase, double peso, String color, String consumoEnergetico) {
+		this.precioBase = precioBase;
+		this.peso = peso;
+		comprobarColor(color);
+		comprobarConsumo(consumoEnergetico);
+	}
+	
+	public double getPrecioBase() {
+		return precioBase;
+	}
+	
+	public void setPrecioBase(double precioBase) {
+		this.precioBase = precioBase;
+	}
+	
+	public String getColor() {
+		return color;
+	}
+	
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
+	public String getConsumoEnergetico() {
+		return consumoEnergetico;
+	}
+	
+	public void setConsumoEnergetico(String consumoEnergetico) {
+		this.consumoEnergetico = consumoEnergetico;
+	}
+	
+	public double getPeso() {
+		return peso;
+	}
+	
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+	
+	public String[] getColores() {
+		return colores;
+	}
+	
+	public void setColores(String[] colores) {
+		this.colores = colores;
+	}
+	/*
+	 * Pre: ---
+	 * Post: Este metodo comprueba si la cadena intruducida color se corresponde
+	 * con alguno de los permitidos, en caso contrario
+	 * introduce en la variable local el color por defecto.
+	 */
+	public void comprobarColor(String color) {
+		this.color = "Blanco";
+		for(int i = 0; i < colores.length; i++) {
+			if(colores[i].equalsIgnoreCase(color)) {
+				this.color = color;
+				break;
+			}	
+		}
+	}
+	/*
+	 * Pre: ---
+	 * Post: Este metodo comprueba si la cadena introducida como consumo
+	 * se corresponde con alguno de los permitidos, en caso
+	 * contrario, introduce en la variable local el consumo por defecto.
+	 */
+	public void comprobarConsumo(String consumo) {
+		this.consumoEnergetico = "F";
+		for(int i = 0; i < eficiencias.length; i++) {
+			if(eficiencias[i].equalsIgnoreCase(consumo)) {
+				this.consumoEnergetico = consumo;
+				break;
+			}	
+		}
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;tarea9&apos; to &apos;correctorDeErrores&apos;&#x0D;&#x0A;- Original project: &apos;Pr&apos;&#x0D;&#x0A;- Original element: &apos;Pr/src/tarea9&apos;&#x0D;&#x0A;- Renamed element: &apos;Pr/src/correctorDeErrores&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;tarea9&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;tarea9" name="correctorDeErrores" qualified="false" references="true" stamp="1636745199966" textual="false" version="1.0"/>
+</session>

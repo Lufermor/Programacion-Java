@@ -1,0 +1,51 @@
+package clasesYObjetos1;
+
+public class Electrodomestico {
+	double precioBase;
+	String color;
+	String consumoEnergetico;
+	double peso;
+	String[] colores = "blanco, negro, rojo, azul, gris".split(", ");
+	String[] eficiencias = "A,B,C,D,E,F".split(",");
+	
+	public Electrodomestico() {
+		precioBase = 100;
+		color = "Blanco";
+		consumoEnergetico = "F";
+		peso = 5;
+	}
+	
+	public Electrodomestico(double precioBase, double peso) {
+		this.precioBase = precioBase;
+		this.peso = peso;
+		color = "Blanco";
+		consumoEnergetico = "F";
+	}
+	
+	public Electrodomestico(double precioBase, double peso, String color, String consumoEnergetico) {
+		this.precioBase = precioBase;
+		this.peso = peso;
+		comprobarColor(color);
+		comprobarConsumo(consumoEnergetico);
+	}
+	
+	public void comprobarColor(String color) {
+		this.color = "Blanco";
+		for(int i = 0; i < colores.length; i++) {
+			if(colores[i].equalsIgnoreCase(color)) {
+				this.color = color;
+				break;
+			}	
+		}
+	}
+	
+	public void comprobarConsumo(String consumo) {
+		this.consumoEnergetico = "F";
+		for(int i = 0; i < eficiencias.length; i++) {
+			if(eficiencias[i].equalsIgnoreCase(consumo)) {
+				this.consumoEnergetico = consumo;
+				break;
+			}	
+		}
+	}
+}

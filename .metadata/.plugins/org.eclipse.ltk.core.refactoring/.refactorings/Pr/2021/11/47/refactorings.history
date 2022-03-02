@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;i&apos; in &apos;tarea10.Tarea10Ejercicio2.ordenarTabla(...)&apos; to &apos;fila&apos;&#x0D;&#x0A;- Original project: &apos;Pr&apos;&#x0D;&#x0A;- Original element: &apos;tarea10.Tarea10Ejercicio2.ordenarTabla(int[][], int).i&apos;&#x0D;&#x0A;- Renamed element: &apos;i&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;i&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;tarea10{Tarea10Ejercicio2.java[Tarea10Ejercicio2~ordenarTabla~\[\[I~I@i!276!282!280!280!I!0!false" name="fila" references="true" stamp="1637945284171" version="1.0"/>
+</session>
