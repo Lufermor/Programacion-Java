@@ -87,6 +87,14 @@ public class Jugador {
 		return calidadPorteria;
 	}
 	
+	/*
+	 * Pre: ---
+	 * Post: Resta una vida al portero cuando le meten un gol
+	 */
+	public void restarVida() {
+		this.vidas -=1;
+	}
+	
 	@Override
 	public String toString() {
 		return "[Nombre = " + nombre + ", Dorsal = " + dorsal + ", Potencia de disparo = " + potenciaDisparo
