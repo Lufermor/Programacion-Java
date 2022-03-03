@@ -3,7 +3,11 @@ package examenProgrTrimestre2;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
+/*
+ * Ejercicio 2: Dado el fichero “textoExamen.txt”, implementa un método
+palabrasMasLargasQue(int longitud) el cual devuelve un entero indicando el número de
+palabras del texto cuya longitud es mayor o igual que [longitud].
+ */
 public class ExamenTrim2_Ejercicio2 {
 	/*
 	 * Pre: ---
@@ -42,9 +46,6 @@ public class ExamenTrim2_Ejercicio2 {
 		String fichero = "/Users/User/eclipse-workspace/Trimestre2/src/examenProgrTrimestre2/textoExamen.txt";
 		System.out.println("Vamos a comprobar el metodo palabrasMasLargasQue, haciendo "
 				+ "varias pruebas sobre el fichero textoExamen.txt");
-		/*Scanner entrada = new Scanner(System.in);
-		System.out.println("Introduzca la ");
-		String longitud = entrada.nextLine();*/
 		for(int i = 0; i<=10; i++) {
 			System.out.println("Numero de palabras en el texto, con longitud igual o mayor de "
 								+ i + " = " + palabrasMasLargasQue(i, fichero));
