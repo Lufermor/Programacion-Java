@@ -7,7 +7,10 @@ import java.util.Scanner;
 public class ExamenTrim2_Ejercicio2 {
 	/*
 	 * Pre: ---
-	 * Post: 
+	 * Post: Este metodo recibe un entero y una ruta de un fichero, crea un objeto tipo file
+	 * y lo lee con un objeto de tipo Scanner. Al leer cada linea, la limpia y la separa por palabras, 
+	 * finalmente comprueba palabra por palabra, si estas tienen una longitud mayor o igual que el entero pasado como atributo
+	 * devuelve el número de palabras que cumplen la condición.
 	 */
 	public static int palabrasMasLargasQue(int lon, String fichero) {
 		int numPalabras = 0;
@@ -32,7 +35,8 @@ public class ExamenTrim2_Ejercicio2 {
 	
 	/*
 	 * Pre: ---
-	 * Post: Este método main
+	 * Post: Este método main implementa un método for que realiza varias pruebas sobre el 
+	 * método palabrasMasLargasQue.
 	 */
 	public static void main(String[] args) {
 		String fichero = "/Users/User/eclipse-workspace/Trimestre2/src/examenProgrTrimestre2/textoExamen.txt";
