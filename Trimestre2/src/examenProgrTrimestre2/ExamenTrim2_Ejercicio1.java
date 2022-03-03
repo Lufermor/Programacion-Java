@@ -13,7 +13,9 @@ public class ExamenTrim2_Ejercicio1 {
 			String nombre = "Jugador" + (i+1);
 			int dorsal = i+1;
 			jugadores.add(new Jugador(nombre, dorsal));
+			System.out.println(jugadores.get(i).toString());
 		}
+		System.out.println();
 	}
 	
 	/*
@@ -24,7 +26,10 @@ public class ExamenTrim2_Ejercicio1 {
 	public static void jugar(ArrayList<Jugador> jugadores) {
 		Jugador tirador;
 		Jugador portero;
+		int ronda =0;
 		while(jugadores.size()>1) {
+			System.out.println("\n------------------------Ronda: " + ++ronda + 
+					"\n----------------------------------------------------------");
 			for(int i = 0; i<jugadores.size(); i++) {
 				if(jugadores.size() == 1) break;
 				if(i == jugadores.size() - 1) {
@@ -36,10 +41,12 @@ public class ExamenTrim2_Ejercicio1 {
 				}
 				int probabilidadGol = tirador.habilidadDisparo()-portero.habilidadPorteria();
 				if(probabilidadGol<5) probabilidadGol = 5;
+				System.out.println(tirador.getNombre() + " contra " + portero.getNombre() + 
+						", probabilidad de gol = " + probabilidadGol + "%");
 				if((Math.random()*100) <= probabilidadGol) {
 					portero.restarVida();
 					System.out.println("El jugador " + tirador.getNombre() + " metió gol al jugador " + portero.getNombre());
-				}
+				}else System.out.println(portero.getNombre() +" tapo un gol de " + tirador.getNombre());
 				if(portero.getVidas() == 0 ) {
 					System.out.println("El jugador "+ portero.getNombre() + " Ha sido eliminado ");
 					jugadores.remove(portero);
