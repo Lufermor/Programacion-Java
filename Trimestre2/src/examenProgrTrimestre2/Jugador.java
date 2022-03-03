@@ -14,7 +14,15 @@ public class Jugador {
 		this.calidadPorteria = 1;
 		this.vidas = 2;
 	}
-	
+
+	public Jugador(String nombre, int dorsal) {
+		this.nombre = nombre;
+		this.dorsal = dorsal;
+		this.potenciaDisparo = (int)Math.random()*100;
+		this.calidadPorteria = (int)Math.random()*100;
+		this.vidas = 2;
+	}
+
 	public Jugador(String nombre, int dorsal, int potenciaDisparo, int calidadPorteria) {
 		this.nombre = nombre;
 		this.dorsal = dorsal;
