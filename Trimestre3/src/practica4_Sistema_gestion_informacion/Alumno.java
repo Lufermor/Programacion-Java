@@ -1,27 +1,27 @@
 package practica4_Sistema_gestion_informacion;
 
 public class Alumno {
-	private String nip;
+	private int nip;
 	private String apellidos;
 	private String nombre;
 	
 	public Alumno() {
-		this.nip = "";
+		this.nip = 0;
 		this.apellidos = "";
 		this.nombre = "";
 	}
 	
-	public Alumno(String nip, String apellidos, String nombre) {
+	public Alumno(int nip, String apellidos, String nombre) {
 		this.nip = nip;
 		this.apellidos = apellidos;
 		this.nombre = nombre;
 	}
 
-	public String getNip() {
+	public int getNip() {
 		return nip;
 	}
 
-	public void setNip(String nip) {
+	public void setNip(int nip) {
 		this.nip = nip;
 	}
 

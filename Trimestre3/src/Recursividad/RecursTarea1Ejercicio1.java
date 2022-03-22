@@ -3,7 +3,7 @@ package Recursividad;
 public class RecursTarea1Ejercicio1 {
 	/*
 	 * Pre: ---
-	 * Post:
+	 * Post: suma de forma recursiva los numeros naturales hasta un número n dado
 	 */
 	private static int sumarNaturales(int n) {
 		if(n == 0) return 0;
@@ -12,7 +12,7 @@ public class RecursTarea1Ejercicio1 {
 	
 	/*
 	 * Pre: --- 
-	 * Post: 
+	 * Post: realiza pruebas sobre el método de sumar
 	 */
 	public static void main(String[] args) {
 		for(int i= 1; i < 20; i++) {
