@@ -42,10 +42,10 @@ public class MainBizi {
 	 * y luego copia las 10 primeras líneas del file en un nuevo fichero
 	 */
 	public static void copiar10() {
-		//String fichero = "D:/Documentos/GradosuperiorDAM2021/Programación/Practica3Trimestre2_BiZi/usos-16.csv";
-		//String newFile = "D:/Documentos/GradosuperiorDAM2021/Programación/Practica3Trimestre2_BiZi/pruebas-10.csv";
-		String fichero = "usos-16.csv";
-		String newFile = "pruebas-10.csv";
+		String fichero = "D:/Documentos/GradosuperiorDAM2021/Programación/Practica3Trimestre2_BiZi/usos-16.csv";
+		String newFile = "D:/Documentos/GradosuperiorDAM2021/Programación/Practica3Trimestre2_BiZi/pruebas-10.csv";
+		//String fichero = "usos-16.csv";
+		//String newFile = "pruebas-10.csv";
 		File file = new File(fichero);
 		try {
 			Formatter salida = new Formatter(newFile);
@@ -70,10 +70,10 @@ public class MainBizi {
 	 * y luego copia las 2000 primeras líneas del file en un nuevo fichero
 	 */
 	public static void copiar2000() {
-		//String fichero = "D:/Documentos/GradosuperiorDAM2021/Programación/Practica3Trimestre2_BiZi/usos-17.csv";
-		//String newFile = "D:/Documentos/GradosuperiorDAM2021/Programación/Practica3Trimestre2_BiZi/pruebas-2000.csv";
-		String fichero = "usos-17.csv";
-		String newFile = "pruebas-2000.csv";
+		String fichero = "D:/Documentos/GradosuperiorDAM2021/Programación/Practica3Trimestre2_BiZi/usos-17.csv";
+		String newFile = "D:/Documentos/GradosuperiorDAM2021/Programación/Practica3Trimestre2_BiZi/pruebas-2000.csv";
+		//String fichero = "usos-17.csv";
+		//String newFile = "pruebas-2000.csv";
 		File file = new File(fichero);
 		try {
 			Formatter salida = new Formatter(newFile);

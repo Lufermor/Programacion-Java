@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alumnos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+    <body>
+        <h2>Lista de alumnos</h2>
+        <div th:if="${not #lists.isEmpty(alumnos)}">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Password</th>
+                </tr>
+                <tr th:each="alumno : ${alumnos}">
+                    <td th:text="${alumno.id}"></td>
+                    <td th:text="${alumno.nombre}"></td>
+                    <td th:text="${alumno.password}"></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

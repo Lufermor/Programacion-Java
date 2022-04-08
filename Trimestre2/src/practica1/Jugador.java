@@ -106,13 +106,21 @@ public class Jugador {
 			this.tarjetasRojas=0;
 		}
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Jugador:"
-				+ "\nNombre: " + nombre
-				+ "\nGoles: " + goles
-				+ "\nTarjetas Amarillas: " + tarjetasAmarillas
-				+ "\nTarjetas Rojas: " + tarjetasRojas;
+		return "Jugador [nombre=" + nombre + ", dorsal=" + dorsal + ", goles=" + goles + ", tarjetasAmarillas="
+				+ tarjetasAmarillas + ", tarjetasRojas=" + tarjetasRojas + "]";
 	}
+	
+//	@Override
+//	public String toString() {
+//		return "Jugador:"
+//				+ "\nNombre: " + nombre
+//				+ "\nDorsal: " + dorsal
+//				+ "\nGoles: " + goles
+//				+ "\nTarjetas Amarillas: " + tarjetasAmarillas
+//				+ "\nTarjetas Rojas: " + tarjetasRojas;
+//	}
+	
 }

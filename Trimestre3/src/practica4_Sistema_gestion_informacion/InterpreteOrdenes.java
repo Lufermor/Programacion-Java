@@ -179,7 +179,7 @@ public class InterpreteOrdenes {
 			}
 		}
 		if(letra.equalsIgnoreCase("a")) {
-			clase.sort(Comparator.comparing(Alumno::getApellidos));
+			clase.sort(Comparator.comparing(Alumno::getApellidos).thenComparing(Alumno::getNombre));
 		}else {
 			clase.sort(Comparator.comparing(Alumno::getNip));
 		}
@@ -256,8 +256,8 @@ public class InterpreteOrdenes {
 	 * Pre: ---
 	 * Post: Este metodo recibe un arrayList de matriculas, un nip y una  tabla de codigos.
 	 * Elimina del fichero todas las matriculas que se corresponden con el nip y los codigos 
-	 * pasados en la lista. Si no se especifica ningún código en la lista, borra todas 
-	 * las matrículas donde el nip se corresponda con el pasado por la matrícula.
+	 * pasados en la tabla. Si no se especifica ningún código en la tabla, borra todas 
+	 * las matrículas donde el nip se corresponda con el pasado como parámetro.
 	 */
 	private static void eliminarMatri(ArrayList<Matricula> matriculas, int nip, int[] codigos, String ruta) {
 		String eliminadas = "";
