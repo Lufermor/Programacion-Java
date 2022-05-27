@@ -3,31 +3,31 @@ package examenProgramacionMayo2022;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Scanner;
 
 /*
- * Queremos desarrollar un programa Java que sea capaz de analizar la información de un
- * fichero de texto. El algoritmo recibe como parámetro la dirección de un fichero de texto junto a una 
+ * Queremos desarrollar un programa Java que sea capaz de analizar la informaciÃ³n de un
+ * fichero de texto. El algoritmo recibe como parÃ¡metro la direcciÃ³n de un fichero de texto junto a una 
  * letra del abecedario. El resultado debe mostrar por pantalla cada una de las palabras del texto que
- * empiezan o terminan con dicha letra, junto a la línea en la que se encuentran.
- * Con la finalidad de que la información mostrada por el algoritmo sea persistente, el programa
- * deberá almacenarla en una Base de Datos formada por una única tabla,
+ * empiezan o terminan con dicha letra, junto a la lÃ­nea en la que se encuentran.
+ * Con la finalidad de que la informaciÃ³n mostrada por el algoritmo sea persistente, el programa
+ * deberÃ¡ almacenarla en una Base de Datos formada por una Ãºnica tabla,
  */
 
-public class ExamenProgramacionEjercicio1 {
+public class PalabrasExamenProgramacionEjercicio1 {
 	
 	/*
 	 * Pre: 
-	 * Post: Este método se encarga de leer las líneas de un fichero del que se le pasa la ruta.
-	 * Busca en cada línea las palabras que empiecen por una letra indicada. 
-	 * Cuando encuentra las palabras, guardará en un arraylist de objetos Palabra
-	 * cada ocurrencia, indicando la letra, palabra encontrada y número de línea donde se encuentra.
-	 * Por último, llama a un método de la clase MySQLAccess, para guardar cada objeto palabra
+	 * Post: Este mÃ©todo se encarga de leer las lÃ­neas de un fichero del que se le pasa la ruta.
+	 * Busca en cada lÃ­nea las palabras que empiecen por una letra indicada. 
+	 * Cuando encuentra las palabras, guardarÃ¡ en un arraylist de objetos Palabra
+	 * cada ocurrencia, indicando la letra, palabra encontrada y nÃºmero de lÃ­nea donde se encuentra.
+	 * Por Ãºltimo, llama a un mÃ©todo de la clase MySQLAccess, para guardar cada objeto palabra
 	 * en una base de datos.
 	 */
 	public static void buscarPalabras(ArrayList<Palabra> palabras, String letra, String ruta, MySQLAccess dao) {
 		palabras.clear();
+		if(letra.length()>1) return;
 		File file = new File(ruta);
 		try {
 			Scanner f = new Scanner(file);
@@ -43,7 +43,7 @@ public class ExamenProgramacionEjercicio1 {
 			}
 			f.close(); // Se libera el fichero que estamos leyendo
 		} catch (FileNotFoundException e) {
-			System.out.println("El fichero " + ruta + " no ha podido ser leído.");
+			System.out.println("El fichero " + ruta + " no ha podido ser leï¿½do.");
 		}
 		//Imprimimos los objetos en el arrayList para comprobar:
 //		for(Palabra p :  palabras) System.out.println(p.toString());
@@ -58,16 +58,16 @@ public class ExamenProgramacionEjercicio1 {
 	
 	/*
 	 * Pre:---
-	 * Post: Este método main tiene una ruta de un fichero de texto, crea un objeto para conectar 
-	 * con la base de datos y un arrayList de objetos Palabra, por último hace una prueba sobre 
-	 * el metodo buscar palabras, para buscar palabras según una letra determinada.
-	 * Estas palabras se guardarán en una base de datos
+	 * Post: Este mÃ©todo main tiene una ruta de un fichero de texto, crea un objeto para conectar 
+	 * con la base de datos y un arrayList de objetos Palabra, por Ãºltimo hace una prueba sobre 
+	 * el metodo buscar palabras, para buscar palabras segÃºn una letra determinada.
+	 * Estas palabras se guardarÃ¡n en una base de datos
 	 */
 	public static void main(String[] args) {
 		String ruta = "C:/Users/User/eclipse-workspace/Trimestre3/src/examenProgramacionMayo2022/HablanosDelDon.txt";
 		MySQLAccess dao = new MySQLAccess();
 		ArrayList<Palabra> palabras = new ArrayList<Palabra>();
-		buscarPalabras(palabras, "p", ruta, dao);
+		buscarPalabras(palabras, "l", ruta, dao);
 	}
 
 }
