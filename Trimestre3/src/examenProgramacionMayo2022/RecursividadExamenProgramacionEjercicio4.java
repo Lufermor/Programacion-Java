@@ -9,10 +9,19 @@ public class RecursividadExamenProgramacionEjercicio4 {
 	
 	/*
 	 * Pre: ---
-	 * Post: Este método main
+	 * Post: Muestra por pantalla la tabla de multiplicar del número indicado,
+	 * pero únicamente con multiplicadores pares hasta el número 100 
+	 */
+	private static int tablaMultiplicar(int num) {
+		return num;
+	}
+	
+	/*
+	 * Pre: ---
+	 * Post: Este método main realiza pruebas sobre el método tablaMultiplicar
 	 */
 	public static void main(String[] args) {
-		
+		tablaMultiplicar(2);
 	}
 
 }

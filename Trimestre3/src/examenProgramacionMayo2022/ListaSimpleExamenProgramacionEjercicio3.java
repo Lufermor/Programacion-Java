@@ -40,14 +40,8 @@ public class ListaSimpleExamenProgramacionEjercicio3 {
 	public static void main(String[] args) {
 		SimpleLinkedList l = new SimpleLinkedList();
 		for(int i=0; i<10; i++) {
-			l.add(new Node(i));
+			l.add(new Node((int)(Math.random()*100)));
 		}
-		for(int i=0; i<10; i++) {
-			l.add(new Node(i));
-		}
-//		for(int i=0; i<10; i++) {
-//			l.add(new Node((int)(Math.random()*100)));
-//		}
 		l.show();
 		for(int i = 0; i<5; i++) {
 			System.out.println();
