@@ -26,7 +26,7 @@ public class ExamenProgramacionEjercicio1 {
 	 * Por último, llama a un método de la clase MySQLAccess, para guardar cada objeto palabra
 	 * en una base de datos.
 	 */
-	public static void buscarPalabras(ArrayList<Palabra> palabras, String letra, String ruta) {
+	public static void buscarPalabras(ArrayList<Palabra> palabras, String letra, String ruta, MySQLAccess dao) {
 		palabras.clear();
 		File file = new File(ruta);
 		try {
@@ -45,21 +45,29 @@ public class ExamenProgramacionEjercicio1 {
 		} catch (FileNotFoundException e) {
 			System.out.println("El fichero " + ruta + " no ha podido ser leído.");
 		}
-		/*
-		 * Con la siguiente línea ordenamos la lista de usuarios por el valor de su
-		 * atributo usosTotales, de mayor a menor:
-		 */
-		for(Palabra p :  palabras) System.out.println(p.toString());
+		//Imprimimos los objetos en el arrayList para comprobar:
+//		for(Palabra p :  palabras) System.out.println(p.toString());
+		for(Palabra p :  palabras) {
+			try {
+				dao.insertRegistro(letra, p.getPalabra(), p.getnLinea());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	/*
 	 * Pre:---
-	 * Post:
+	 * Post: Este método main tiene una ruta de un fichero de texto, crea un objeto para conectar 
+	 * con la base de datos y un arrayList de objetos Palabra, por último hace una prueba sobre 
+	 * el metodo buscar palabras, para buscar palabras según una letra determinada.
+	 * Estas palabras se guardarán en una base de datos
 	 */
 	public static void main(String[] args) {
 		String ruta = "C:/Users/User/eclipse-workspace/Trimestre3/src/examenProgramacionMayo2022/HablanosDelDon.txt";
+		MySQLAccess dao = new MySQLAccess();
 		ArrayList<Palabra> palabras = new ArrayList<Palabra>();
-		buscarPalabras(palabras, "p", ruta);
+		buscarPalabras(palabras, "p", ruta, dao);
 	}
 
 }
