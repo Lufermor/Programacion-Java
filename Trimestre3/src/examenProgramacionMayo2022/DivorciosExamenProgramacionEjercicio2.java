@@ -43,7 +43,7 @@ public class DivorciosExamenProgramacionEjercicio2 {
 	}
 	
 	/*
-	 * Pre: ---
+	 * Pre: El año que se pasa como parámetro debe existir en el fichero original de datos. 
 	 * Post: Imprime por pantalla el numero total de divorcios en un año, 
 	 * segun si hubo separación previa o no. 
 	 */
@@ -86,7 +86,10 @@ public class DivorciosExamenProgramacionEjercicio2 {
 	
 	/*
 	 * Pre: ---
-	 * Post: Este método main
+	 * Post: Este método main crea un arrayList de objetos Divorcio, luego llama a un metodo para 
+	 * rellenarlo con registros de un fichero csv, a continuación realiza una prueba sobre el 
+	 * método totalDivorciosYear, para comprobar que puede calcular el número de divorcios 
+	 * con o sin separacion en un año 
 	 */
 	public static void main(String[] args) {
 		String ruta = "C:/Users/User/eclipse-workspace/Trimestre3/src/examenProgramacionMayo2022/Divorcios.csv";
