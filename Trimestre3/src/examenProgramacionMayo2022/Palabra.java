@@ -1,5 +1,9 @@
 package examenProgramacionMayo2022;
 
+/*
+ * Clase que sirve para almacenar datos de palabras encontrados en ficheros de texto.
+ */
+
 public class Palabra {
 	private String letra;
 	private String palabra;

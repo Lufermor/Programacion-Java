@@ -8,10 +8,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/*
+ * Clase que sirve para realizar las conexiones y consultas con una base de datos.
+ */
+
 public class MySQLAccess {
 	
 	/*
-	 * Almacenamos la conexión con nuestra bd en 
+	 * Almacenamos la conexiï¿½n con nuestra bd en 
 	 * un objeto de tipo Connection. La abrimos cuando
 	 * queremos empezar a operar con la BD y siempre
 	 * debemos cerrarla al finalizar.
@@ -21,13 +25,13 @@ public class MySQLAccess {
 	private PreparedStatement preparedStatement = null;
 	/*
 	 * Almacena el resultado de las consultas en un dato de 
-	 * tipo ResultSet, que tiene sus propios métodos para trabajar
+	 * tipo ResultSet, que tiene sus propios mï¿½todos para trabajar
 	 * con las tablas y columnas.
 	 */
 	private ResultSet resultSet = null;
 	
 	/*
-	 * Almacenamos los datos de conexón con nuestra BD.
+	 * Almacenamos los datos de conexï¿½n con nuestra BD.
 	 */
 	final private String host = "localhost:3306/registroDB";
 	final private String user = "root";
@@ -104,14 +108,14 @@ public class MySQLAccess {
 			System.out.print("\t"+ resultSet.getMetaData().getColumnName(i));
 		}System.out.println();
 		/*
-		 * Mientras resultSet contenga máss registros, seguimos avanzando
+		 * Mientras resultSet contenga mï¿½ss registros, seguimos avanzando
 		 * de manera similar a los ficheros de texto.
 		 */
 		while (resultSet.next()) {
 
 			/*
 			 * Podemos seleccionar la columna de la que queremos leer el dato poniendo su
-			 * nombre, o también indicando su número de columna...
+			 * nombre, o tambiï¿½n indicando su nï¿½mero de columna...
 			 */
 			for (int i = 2; i <= resultSet.getMetaData().getColumnCount(); i++) {
 				System.out.print("\t" + resultSet.getString(i));

@@ -1,5 +1,10 @@
 package examenProgramacionMayo2022;
 
+/*
+ * Objeto que sirve para almacenar datos de divorcios 
+ * del instituto nacional de estadística.
+ */
+
 public class Divorcio {
 	private String provincia;
 	private String separacion;

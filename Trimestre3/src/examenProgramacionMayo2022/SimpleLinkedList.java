@@ -1,5 +1,10 @@
 package examenProgramacionMayo2022;
 
+/*
+ * Clase que sirve para crear una lista enlzada simple, 
+ * contiene métodos para poder realizar acciones sobre la lista o los nodos almacenados en esta. 
+ */
+
 public class SimpleLinkedList {
 	private Node first;
 	private int size;

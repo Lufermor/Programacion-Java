@@ -1,5 +1,9 @@
 package examenProgramacionMayo2022;
 
+/*
+ * Clase que sirve para crear objetos que actúen de nodo en una lista enlazada
+ */
+
 public class Node {
 	private int content;
 	private Node next;
