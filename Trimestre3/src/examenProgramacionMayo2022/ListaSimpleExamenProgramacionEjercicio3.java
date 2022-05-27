@@ -19,9 +19,14 @@ public class ListaSimpleExamenProgramacionEjercicio3 {
 			if(p.getContent() > mayor) mayor = p.getContent();
 			p = p.getNext();
 		}
+		System.out.println("Valor mayor = " + mayor);
 		p = l.getFirst();
 		for(int i =0; i<l.getSize(); i++) {
-			if(p.getContent() == mayor) l.delete(i);
+			if(p==null) break;
+			if(p.getContent() == mayor) {
+				l.delete(i); 
+				i--;
+			}
 			p = p.getNext();
 		}
 	}
@@ -35,8 +40,14 @@ public class ListaSimpleExamenProgramacionEjercicio3 {
 	public static void main(String[] args) {
 		SimpleLinkedList l = new SimpleLinkedList();
 		for(int i=0; i<10; i++) {
-			l.add(new Node((int)(Math.random()*100)));
+			l.add(new Node(i));
 		}
+		for(int i=0; i<10; i++) {
+			l.add(new Node(i));
+		}
+//		for(int i=0; i<10; i++) {
+//			l.add(new Node((int)(Math.random()*100)));
+//		}
 		l.show();
 		for(int i = 0; i<5; i++) {
 			System.out.println();
