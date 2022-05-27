@@ -59,7 +59,7 @@ public class DivorciosExamenProgramacionEjercicio2 {
 		}else if("no".equalsIgnoreCase(separacion.strip())) {
 			System.out.println("El numero total de divorcios SIN separacion en el año " 
 					+ year + " es = " + total);
-}
+		}
 	}
 	
 	/*

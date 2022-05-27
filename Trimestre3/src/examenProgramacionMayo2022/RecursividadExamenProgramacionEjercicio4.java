@@ -10,18 +10,24 @@ public class RecursividadExamenProgramacionEjercicio4 {
 	/*
 	 * Pre: ---
 	 * Post: Muestra por pantalla la tabla de multiplicar del número indicado,
-	 * pero únicamente con multiplicadores pares hasta el número 100 
+	 * y hasta el factor indicado, pero únicamente con multiplicadores pares. 
 	 */
-	private static int tablaMultiplicar(int num) {
-		return num;
+	private static void tablaMultiplicar(int num, int factor) {
+		if(factor%2 != 0) factor--;
+		if(factor >0) {
+			tablaMultiplicar(num, (factor-2));
+		}
+		System.out.println(num + " * " + factor + " = " + (num*factor));
 	}
 	
 	/*
 	 * Pre: ---
 	 * Post: Este método main realiza pruebas sobre el método tablaMultiplicar
+	 * al método se debe enviar el numero del que se quiere obtener la tabla, 
+	 * y el número hasta el cuál se quieren obtener los valores de la multiplicación
 	 */
 	public static void main(String[] args) {
-		tablaMultiplicar(2);
+		tablaMultiplicar(2, 101);
 	}
 
 }
