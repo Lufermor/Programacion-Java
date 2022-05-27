@@ -50,7 +50,8 @@ public class DivorciosExamenProgramacionEjercicio2 {
 	private static void totalDivorciosYear(ArrayList<Divorcio> divorcios, String separacion, int year) {
 		int total = 0;
 		for(Divorcio p :  divorcios) {
-			if(p.getSeparacion().equalsIgnoreCase(separacion.strip()) && p.getYear()==year) total++;
+			if(p.getSeparacion().equalsIgnoreCase(separacion.strip()) 
+					&& p.getYear()==year) total+=p.getDivorcios();
 		}
 		if("si".equalsIgnoreCase(separacion.strip())) {
 			System.out.println("El numero total de divorcios CON separacion en el año " 
@@ -63,13 +64,36 @@ public class DivorciosExamenProgramacionEjercicio2 {
 	
 	/*
 	 * Pre: ---
+	 * Post: Imprimer por pantalla la provincia donde se han registrado más divorcios
+	 * desde 2013 hasta 2019
+	 */
+	private static void provinciaMasDivorciada(ArrayList<Divorcio> divorcios) {
+		Divorcio mayor = new Divorcio(divorcios.get(0).getProvincia(), "", 0, 0);
+//		System.out.println(mayor.toString());
+		Divorcio actual = new Divorcio(divorcios.get(0).getProvincia(), "", 0, 0);
+		for(Divorcio p :  divorcios) {
+			if(p.getProvincia().equals(actual.getProvincia())) {
+				actual.setDivorcios(actual.getDivorcios()+p.getDivorcios());
+			}else if(actual.getDivorcios()>mayor.getDivorcios()) {
+				mayor = actual;
+//				System.out.println(mayor.toString());
+				actual = new Divorcio(p.getProvincia(), "", 0, p.getDivorcios());
+			}
+		}
+		System.out.println("La provincia con mayor numero de divorcios es: " +mayor.getProvincia()
+							+ " con " + mayor.getDivorcios() + " divorcios");
+	}
+	
+	/*
+	 * Pre: ---
 	 * Post: Este método main
 	 */
 	public static void main(String[] args) {
 		String ruta = "C:/Users/User/eclipse-workspace/Trimestre3/src/examenProgramacionMayo2022/Divorcios.csv";
 		ArrayList<Divorcio> divorcios = new ArrayList<Divorcio>();
 		leerDivorcios(divorcios, ruta);
-		totalDivorciosYear(divorcios, "Si", 2019);
+		totalDivorciosYear(divorcios, "si", 2019);
+		provinciaMasDivorciada(divorcios);
 	}
 
 }
